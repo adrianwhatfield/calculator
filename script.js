@@ -1,3 +1,4 @@
+// Maths functions
 let add = (a, b) => a + b;
 let subtract = (a, b) => a - b;
 let multiply = (a, b) => a * b;
@@ -12,7 +13,7 @@ let b;
 
 const displayElement = document.getElementById("display");
 
-
+// All event listeners
 document.getElementById("one").addEventListener("click", inputNum);
 document.getElementById("two").addEventListener("click", inputNum);
 document.getElementById("three").addEventListener("click", inputNum);
@@ -33,11 +34,12 @@ document.getElementById("equals").addEventListener("click", inputEquals);
 document.getElementById("decimal").addEventListener("click", inputNum);
 document.getElementById("clear").addEventListener("click", inputClear);
 
+// Display the argument
 function display(num) {
     displayElement.innerHTML = num;
 };
 
-
+// Assigns a's value and the correct operator
 function inputOperator(event) {
     let id = event.target.id;
 
@@ -48,28 +50,25 @@ function inputOperator(event) {
         displayArr = [];
         displayStr = "";
         display("+");
-        console.log(operator);
     } else if (id == "subtract") {
         operator = "subtract";
         displayArr = [];
         displayStr = "";
         display("-");
-        console.log(operator);
     } else if (id == "multiply") {
         operator = "multiply";
         displayArr = [];
         displayStr = "";
         display("*");
-        console.log(operator);
     } else if (id == "divide") {
         operator = "divide";
         displayArr = [];
         displayStr = "";
         display("/");
-        console.log(operator);
     };
 };
 
+// Calls the correct maths functions and assigns b's value
 function operate() {
     b = parseFloat(displayStr);
 
@@ -84,6 +83,7 @@ function operate() {
     };
 };
 
+// Clears all data
 function inputClear() {
     displayArr = [];
     displayStr = "";
@@ -93,6 +93,7 @@ function inputClear() {
     display(displayStr);
 };
 
+// Pushes number to array and displays it
 function inputNum(event, num) {
     let id = event.target.id;
 
@@ -154,8 +155,8 @@ function inputNum(event, num) {
     };
 };
 
+// Displays the result and clears data
 function inputEquals() {
-    console.log("=")
     display(operate());
 
     displayArr = [];
